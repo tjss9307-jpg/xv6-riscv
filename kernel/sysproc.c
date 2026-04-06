@@ -108,10 +108,22 @@ sys_uptime(void)
   return xticks;
 }
 
+
+// getNumProc() return no of active procs
+
+uint64
+sys_getNumProc(void)
+{
+  return getNumProc();
+}
+
 //cps returns current process state
 
 uint64
 sys_cps(void)
 {
-  return 2026;
+  cps();
+  return 0;
 }
+
+

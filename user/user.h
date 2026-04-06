@@ -25,6 +25,7 @@ char* sys_sbrk(int,int);
 int pause(int);
 int uptime(void);
 int cps(void);
+int getNumProc(void);
 
 // ulib.c
 int stat(const char*, struct stat*);

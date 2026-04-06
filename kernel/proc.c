@@ -688,3 +688,42 @@ procdump(void)
     printf("\n");
   }
 }
+
+//getNumProc
+
+int 
+getNumProc(void)
+{
+  struct proc* p;
+  int num_active_procs = 0;
+
+  for (p = proc ; p < &proc[NPROC] ; p++){
+    if (p->state != UNUSED){
+      num_active_procs++;
+    }
+  }
+
+  return num_active_procs;
+}
+
+//cps
+
+void
+cps(void)
+{
+  struct proc *p;
+
+  printf("name \t pid \t state \n");
+
+  for(p = proc; p < &proc[NPROC]; p++) {
+      
+      acquire(&p->lock);
+      if (p->state != UNUSED) {
+        printf( "%s \t %d \t %d \n" , p->name , p->pid , p->state);
+      }
+      release(&p->lock);
+      
+  }
+}
+
+
