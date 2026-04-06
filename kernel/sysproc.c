@@ -107,3 +107,11 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+//cps returns current process state
+
+uint64
+sys_cps(void)
+{
+  return 2026;
+}
