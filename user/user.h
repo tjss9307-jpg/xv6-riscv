@@ -26,6 +26,7 @@ int pause(int);
 int uptime(void);
 int cps(void);
 int getNumProc(void);
+uint64 getpa(void* va);
 
 // ulib.c
 int stat(const char*, struct stat*);

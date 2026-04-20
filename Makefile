@@ -147,6 +147,8 @@ UPROGS=\
 	$U/_dorphan\
 	$U/_test-cps\
 	$U/_t-getNumProc\
+	$U/_tgetpa\
+
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)

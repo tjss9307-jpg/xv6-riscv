@@ -127,3 +127,27 @@ sys_cps(void)
 }
 
 
+// sys_getpa: returns physical address of a user virtual address
+uint64
+sys_getpa(void)
+{
+    uint64 va;
+    struct proc *p = myproc();
+
+    // 1. Fetch argument from user-space
+    argaddr(0, &va) ;
+      
+    if (va<0 || va>=MAXVA){
+      return -1;
+    }
+    // 2. Walk page table to get PTE
+    pte_t *pte;
+    if ( (pte = walk(p->pagetable, va, 0) )== 0){
+      return -1;
+    }
+    // if (!pte || !(*pte & PTE_V))
+    //     return -1; // invalid or unmapped VA
+
+    // 3. Return physical address
+    return PTE2PA(*pte);
+}

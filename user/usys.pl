@@ -44,3 +44,4 @@ entry("pause");
 entry("uptime");
 entry("getNumProc");
 entry("cps");
+entry("getpa");
